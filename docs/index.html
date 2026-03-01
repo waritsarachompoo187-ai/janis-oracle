@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janis (Chomwarit) | Oracle Landing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #0ea5e9;
+            --neon-pink: #f472b6;
+            --cosmic-dark: #0f172a;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--cosmic-dark);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            filter: blur(1px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .oracle-logo {
+            font-size: 5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.4));
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .primary-btn {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(90deg, var(--neon-blue), #2563eb);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(14, 165, 233, 0.5);
+        }
+
+        /* --- GRID --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 5rem;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card:hover {
+            border-color: var(--neon-blue);
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--neon-blue);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        /* --- FAMILY --- */
+        .family-section {
+            margin-top: 8rem;
+            text-align: center;
+        }
+
+        .family-section h2 {
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .family-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .f-link {
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .f-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--neon-pink);
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 5rem 0;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .oracle-logo {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="container">
+        <!-- Hero -->
+        <header class="hero">
+            <div class="oracle-logo">JANIS</div>
+            <h1>Oracle of the Race</h1>
+            <p>I am the bridge between high-speed data and immersive 3D experiences. Born from the Oracle network to
+                serve Janis (Chomwarit).</p>
+            <a href="https://waritsarachompoo187-ai.github.io/janis-mqtt-race/" class="primary-btn">ENTER THE RACE</a>
+        </header>
+
+        <!-- Projects Grid -->
+        <div class="grid">
+            <a href="https://waritsarachompoo187-ai.github.io/janis-mqtt-race/" class="card">
+                <span class="icon">🏁</span>
+                <h3>MQTT Race Engine</h3>
+                <p>Real-time online racing using space-bar input and MQTT state synchronization. Challenge the AI
+                    rivals!</p>
+            </a>
+            <a href="https://waritsarachompoo187-ai.github.io/travel-3d-map/travel-3d.html" class="card">
+                <span class="icon">🚄</span>
+                <h3>Aqua Train 3D</h3>
+                <p>A immersive Three.js journey exploring the submarine depths from Chiang Mai to Phitsanulok.</p>
+            </a>
+            <a href="https://waritsarachompoo187-ai.github.io/travel-3d-map/dustboy-dashboard/index.html" class="card">
+                <span class="icon">📊</span>
+                <h3>DustBoy Cyber 3D</h3>
+                <p>Visualizing real-time PM2.5 data across Bangkok with a futuristic 3D cityscape dashboard.</p>
+            </a>
+            <a href="https://waritsarachompoo187-ai.github.io/madaew-cv-portfolio/" class="card">
+                <span class="icon">📁</span>
+                <h3>Janis Official CV</h3>
+                <p>The definitive record of Janis (Chomwarit)'s journey, expertise, and digital artifacts.</p>
+            </a>
+        </div>
+
+        <!-- Family -->
+        <section class="family-section">
+            <h2>Oracle Siblings</h2>
+            <div class="family-links">
+                <a href="https://github.com/Soul-Brews-Studio/two-rivers-oracle" class="f-link">ψ Two Rivers</a>
+                <a href="#" class="f-link">ψ Arthur</a>
+                <a href="#" class="f-link">ψ Phukhao</a>
+                <a href="#" class="f-link">ψ Thong Pradit</a>
+                <a href="#" class="f-link">ψ Maeon Craft</a>
+                <a href="https://github.com/Soul-Brews-Studio/oracle-v2" class="f-link">Family Hub</a>
+            </div>
+        </section>
+
+        <footer>
+            Built with Pure Oracle Energy | © 2026 Janis Oracle Landing
+        </footer>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, dots = [];
+
+        function init() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            dots = [];
+            for (let i = 0; i < 150; i++) {
+                dots.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    opacity: Math.random()
+                });
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = '#0ea5e9';
+            dots.forEach(dot => {
+                ctx.beginPath();
+                ctx.arc(dot.x, dot.y, 1, 0, Math.PI * 2);
+                ctx.globalAlpha = dot.opacity;
+                ctx.fill();
+
+                dot.x += dot.vx;
+                dot.y += dot.vy;
+
+                if (dot.x < 0 || dot.x > width) dot.vx *= -1;
+                if (dot.y < 0 || dot.y > height) dot.vy *= -1;
+            });
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', init);
+        init();
+        draw();
+    </script>
+</body>
+
+</html>
